@@ -1,0 +1,33 @@
+{
+  "name": "tsu",
+  "version": "1.0.0",
+  "description": "Random assortment of Typescript utilities, wrappers, and types.",
+  "main": "build/tsu.js",
+  "types": "build/tsu.d.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p .",
+    "pretest": "tslint -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SomeoneWeird/tsu.git"
+  },
+  "author": "Adam Brady <adam@boxxen.org>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SomeoneWeird/tsu/issues"
+  },
+  "homepage": "https://github.com/SomeoneWeird/tsu#readme",
+  "devDependencies": {
+    "@types/node": "^12.0.2",
+    "tslint": "^5.16.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "fp-ts": "^1.18.2",
+    "io-ts": "^1.8.6"
+  }
+}
