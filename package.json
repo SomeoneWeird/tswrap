@@ -1,9 +1,9 @@
 {
-  "name": "tsu",
+  "name": "tswrap",
   "version": "1.0.0",
   "description": "Random assortment of Typescript utilities, wrappers, and types.",
-  "main": "build/tsu.js",
-  "types": "build/tsu.d.js",
+  "main": "build/tswrap.js",
+  "types": "build/tswrap.d.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -p .",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SomeoneWeird/tsu.git"
+    "url": "git+https://github.com/SomeoneWeird/tswrap.git"
   },
   "author": "Adam Brady <adam@boxxen.org>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SomeoneWeird/tsu/issues"
+    "url": "https://github.com/SomeoneWeird/tswrap/issues"
   },
-  "homepage": "https://github.com/SomeoneWeird/tsu#readme",
+  "homepage": "https://github.com/SomeoneWeird/tswrap#readme",
   "devDependencies": {
     "@types/node": "^12.0.2",
     "tslint": "^5.16.0",

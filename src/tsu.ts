@@ -11,12 +11,12 @@ export type E = NodeJS.ErrnoException
  * Best paired with an async function.
  *
  * @example
- *  async function getItemById (id: string): tsu.R<Item> {
+ *  async function getItemById (id: string): tswrap.R<Item> {
  */
 export type R<T, ET extends E = E> = Promise<ET | T>
 
 /**
- * Shorthand for `tsu.R<null>`
+ * Shorthand for `tswrap.R<null>`
  * Used for when a function may return an error, but
  * nothing else you may care about.
  */
@@ -24,14 +24,14 @@ export type RE = Promise<null | E>
 
 /**
  *
- * @param arg Return value from `tsu.R<T>`
+ * @param arg Return value from `tswrap.R<T>`
  *
  * This function is used to check if the value returned from a function
- * that has the return type of `tsu.R` is an actual error.
+ * that has the return type of `tswrap.R` is an actual error.
  *
  * If this function returns `true`, typescript knows the value
- * is of type `tsu.E`. If `false`, typescript knows the value
- * is of the type `T` that was passed into `tsu.R<T>`.
+ * is of type `tswrap.E`. If `false`, typescript knows the value
+ * is of the type `T` that was passed into `tswrap.R<T>`.
  */
 export function isError<K extends E = E> (arg: any): arg is K {
   return arg instanceof Error
@@ -42,12 +42,12 @@ export function isError<K extends E = E> (arg: any): arg is K {
  * @param promise External promise
  *
  * This function is used to wrap external promises that do not
- * conform to the `tsu.R` return type.
+ * conform to the `tswrap.R` return type.
  *
  * @example
- *  const returnValue = tsu.wrapPromise<DBEntry>(database.update(id, entry))
+ *  const returnValue = tswrap.wrapPromise<DBEntry>(database.update(id, entry))
  *
- *  if (tsu.isError(returnValue)) {
+ *  if (tswrap.isError(returnValue)) {
  *    ...
  *  }
  */
@@ -77,14 +77,14 @@ export function wrapAxios<T> (promise: Promise<AxiosResponse<T>>): R<AxiosRespon
 
 /**
  *
- * @param arg Return value from `tsu.wrapAxios<T>`
+ * @param arg Return value from `tswrap.wrapAxios<T>`
  *
  * This function is used to check if the return value from
- * `tsu.wrapAxios<T>` is an `AxiosError`.
+ * `tswrap.wrapAxios<T>` is an `AxiosError`.
  *
  * @example
  *  const response = await wrapAxios<Items>(axios.get('/items'))
- *  if (tsu.isAxiosError(response)) {
+ *  if (tswrap.isAxiosError(response)) {
  *    ...
  *  }
  */
@@ -121,7 +121,7 @@ export function parseData<T> (data: any, structure: iots.TypeC<any> | iots.Inter
  * @param arg Return value of `ts.parseData<T>`
  *
  * This function is used to check if the return value from
- * `tsu.parseData<T>` is an error (`Left<iots.Errors>`).
+ * `tswrap.parseData<T>` is an error (`Left<iots.Errors>`).
  *
  * @example
  *  const data = parseData<PostBodyInterfaceType>(req.body, PostBodyInterface)
