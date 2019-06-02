@@ -1,13 +1,14 @@
 {
   "name": "tswrap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Random assortment of Typescript utilities, wrappers, and types.",
   "main": "build/tswrap.js",
   "types": "build/tswrap.d.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -p .",
-    "pretest": "tslint -p ."
+    "pretest": "tslint -p .",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
