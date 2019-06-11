@@ -44,7 +44,7 @@ If this function returns `true`, typescript knows the value is of type `tswrap.E
 If `false`, typescript knows the value is of the type `T` that was passed into `tswrap.R<T>`.
 
 ```js
-async function setPlayerConfirmedStatus (status: boolean): T.R<Player> {
+async function setPlayerConfirmedStatus (status: boolean): tswrap.R<Player> {
   ...
 }
 
@@ -53,7 +53,7 @@ const playerUpdateResult = await setPlayerConfirmedStatus(true)
 // playerUpdateResult type here is `tswrap.E | Player`
 // Trying to access the variable as a `Player` will result in an error.
 
-if (T.isError(playerUpdateResult)) {
+if (tswrap.isError(playerUpdateResult)) {
   // We have now narrowed the type of playerUpdateResult
   // to `tswrap.E`, and can handle that appropriately.
   console.error(`Error updating player: ${playerUpdateResult}`)
@@ -104,7 +104,7 @@ interface Response { id: string }
 
 const result = await tswrap.wrapAxios<Response>(axios.get('https://my.com/api'))
 
-if (T.isAxiosError(result)) {
+if (tswrap.isAxiosError(result)) {
   return result
 }
 
@@ -132,7 +132,7 @@ const request = { id: 123 }
 
 const parsedData = tswrap.parseData<RequestSchemaType>(request, requestSchema)
 
-if (T.isParseError(parsedData)) {
+if (tswrap.isParseError(parsedData)) {
   // parsedData here is the raw Left<iots.Errors, any>
   // allowing you to use your own reporters to return an error
   return parsedData
