@@ -16,6 +16,13 @@ export type E = NodeJS.ErrnoException
 export type R<T, ET extends E = E> = Promise<ET | T>
 
 /**
+ * Export an actual variable called R so we don't
+ * get errors when trying to transpile code to ES5
+ * while using this module.
+ */
+export const R = Promise
+
+/**
  * Shorthand for `tswrap.R<null>`
  * Used for when a function may return an error, but
  * nothing else you may care about.
