@@ -80,7 +80,7 @@ function updatePlayerEmail (id: string, email: string): Promise<Player> {
   })
 }
 
-const playerUpdateResult = tswrap.wrapPromise<Player>(updatePlayerEmail(id, player))
+const playerUpdateResult = await tswrap.wrapPromise<Player>(updatePlayerEmail(id, player))
 
 if (tswrap.isError(playerUpdateResult)) {
   ...
