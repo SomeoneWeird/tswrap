@@ -1,6 +1,6 @@
 {
   "name": "tswrap",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Random assortment of Typescript utilities, wrappers, and types.",
   "main": "build/tswrap.js",
   "types": "build/tswrap.d.js",
