@@ -113,7 +113,7 @@ export function isAxiosError (arg: any): arg is AxiosError {
  * @example
  *  const data = parseData<PostBodyInterfaceType>(req.body, PostBodyInterface)
  */
-export function parseData<T> (data: any, structure: iots.TypeC<any> | iots.IntersectionC<any>): Left<iots.Errors, any> | T {
+export function parseData<T> (data: any, structure: iots.TypeC<any> | iots.IntersectionC<any> | iots.ArrayC<any>): Left<iots.Errors, any> | T {
   const decoded = structure.decode(data)
 
   if (decoded.isLeft()) {
